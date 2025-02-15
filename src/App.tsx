@@ -9,6 +9,10 @@ import SignInPage from "@/routes/sign-in"
 import SignUpPage from "@/routes/sign-up"
 
 
+import { Dashboard } from "@/routes/dashboard"
+import { Generate } from "@/components/generate"
+import { CreateEditPage } from "@/routes/create-edit-page"
+
 
 const App = () => {
     return (
@@ -31,7 +35,17 @@ const App = () => {
                         <MainLayout />
                     </ProtectedRoute>
                 }>
-                    
+                    {/* add all the protect routes */}
+                    <Route element={<Generate />} path="/generate">
+                        <Route index element={<Dashboard />} />
+                        <Route path=":interviewId" element={<CreateEditPage />} />
+                        <Route path="interview/:interviewId" element={<MockLoadPage />} />
+                        <Route
+                            path="interview/:interviewId/start"
+                            element={<MockInterviewPage />}
+                        />
+                        <Route path="feedback/:interviewId" element={<Feedback />} />
+                    </Route>
                 </Route>
             </Routes>
         </Router>
