@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div className="flex-col w-full pb-24">
             <Container>
-                <div className="my-8">
+                {/* <div className="my-8">
                     <h2 className="text-3xl text-center md:text-left md:text-6xl">
                         <span className=" text-outline font-extrabold md:text-8xl">
                             AI Superpower
@@ -26,9 +26,33 @@ const HomePage = () => {
                         AI-driven insights. Discover a smarter way to prepare, practice, and
                         stand out.
                     </p>
+                </div> */}
+                <div className="my-10 text-center md:text-left">
+                    <h2 className="text-4xl md:text-7xl font-extrabold leading-tight">
+                        <span className="bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">
+                            AI-Powered Interviews
+                        </span>
+                        <br />
+                        <span className="text-gray-600 dark:text-gray-400">Redefining How You Prepare</span>
+                    </h2>
+
+                    <p className="mt-6 text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
+                        Elevate your interview skills with AI-driven insights, real-time feedback, and
+                        personalized coaching. Prepare smarter, practice effectively, and land your dream job.
+                    </p>
+
+                    <div className="mt-6">
+                        <Link
+                            to="/generate"
+                            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-md transition-all"
+                        >
+                            Start Your AI Interview
+                        </Link>
+                    </div>
                 </div>
 
-                <div className="flex w-full items-center justify-evenly md:px-12 md:py-16 md:items-center md:justify-end gap-12">
+
+                {/* <div className="flex w-full items-center justify-evenly md:px-12 md:py-16 md:items-center md:justify-end gap-12">
                     <p className="text-3xl font-semibold text-gray-900 text-center">
                         250k+
                         <span className="block text-xl text-muted-foreground font-normal">
@@ -41,12 +65,43 @@ const HomePage = () => {
                             Interview Aced
                         </span>
                     </p>
+                </div> */}
+
+                <div className="flex flex-col md:flex-row w-full items-center justify-center md:justify-between gap-12 px-6 py-12 md:px-16 md:py-20 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg">
+                    <div className="text-center md:text-left max-w-md">
+                        <h3 className="text-4xl font-extrabold text-gray-900 dark:text-white">
+                            Elevate Your Interview Game
+                        </h3>
+                        <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">
+                            AI-powered simulations, real-time feedback, and personalized coaching designed to help you succeed in any job interview.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-8 text-center">
+                        <div>
+                            <h4 className="text-3xl font-bold text-indigo-600">10k+</h4>
+                            <p className="text-lg text-gray-600 dark:text-gray-400">Custom AI Interviews</p>
+                        </div>
+                        <div>
+                            <h4 className="text-3xl font-bold text-blue-500">95%</h4>
+                            <p className="text-lg text-gray-600 dark:text-gray-400">User Satisfaction Rate</p>
+                        </div>
+                        <div>
+                            <h4 className="text-3xl font-bold text-green-500">30+</h4>
+                            <p className="text-lg text-gray-600 dark:text-gray-400">Interview Categories</p>
+                        </div>
+                        <div>
+                            <h4 className="text-3xl font-bold text-red-500">Real-Time</h4>
+                            <p className="text-lg text-gray-600 dark:text-gray-400">AI Feedback & Insights</p>
+                        </div>
+                    </div>
                 </div>
+
 
                 {/* image section */}
                 <div className="w-full mt-4 rounded-xl bg-gray-100 h-[420px] drop-shadow-md overflow-hidden relative">
                     <img
-                        src="/assets/img/hero.jpg"
+                        src="/assets/img/homeimg.png"
                         alt=""
                         className="w-full h-full object-cover"
                     />
