@@ -6,7 +6,6 @@ const Services = () => {
     return (
         <div className="flex-col w-full pb-24">
             <Container>
-                Services
                 {/* Hero Section */}
                 <div className="text-center py-12">
                     <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white">

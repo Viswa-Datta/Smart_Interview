@@ -9,24 +9,7 @@ const HomePage = () => {
     return (
         <div className="flex-col w-full pb-24">
             <Container>
-                {/* <div className="my-8">
-                    <h2 className="text-3xl text-center md:text-left md:text-6xl">
-                        <span className=" text-outline font-extrabold md:text-8xl">
-                            AI Superpower
-                        </span>
-                        <span className="text-gray-500 font-extrabold">
-                            - A better way to
-                        </span>
-                        <br />
-                        improve your interview chances and skills
-                    </h2>
 
-                    <p className="mt-4 text-muted-foreground text-sm">
-                        Boost your interview skills and increase your success rate with
-                        AI-driven insights. Discover a smarter way to prepare, practice, and
-                        stand out.
-                    </p>
-                </div> */}
                 <div className="my-10 text-center md:text-left">
                     <h2 className="text-4xl md:text-7xl font-extrabold leading-tight">
                         <span className="bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">
@@ -41,31 +24,34 @@ const HomePage = () => {
                         personalized coaching. Prepare smarter, practice effectively, and land your dream job.
                     </p>
 
-                    <div className="mt-6">
-                        <Link
-                            to="/generate"
-                            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-md transition-all"
-                        >
-                            Start Your AI Interview
+                </div>
+
+                <div className="relative flex flex-col md:flex-row items-center bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-auto md:h-[500px]">
+                    {/* Text Content */}
+                    <div className="p-8 md:w-1/2 flex flex-col justify-center space-y-4">
+                        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+                            Interviews Copilot&copy;
+                        </h1>
+                        <p className="text-gray-600 dark:text-gray-300">
+                            Elevate your interview preparation with AI-driven insights and real-time practice.
+                        </p>
+                        <Link to='/generate'>
+                            <Button className="w-40 bg-blue-500 text-white hover:bg-blue-700">
+                                Get Started
+                            </Button>
                         </Link>
+
+                    </div>
+                    {/* Image */}
+                    <div className="w-full md:w-1/2 h-80 md:h-full">
+                        <img src="/assets/img/homeimg.png" alt="" className="w-full h-full object-contain" />
                     </div>
                 </div>
 
+            
+                <div className="h-16"></div>
 
-                {/* <div className="flex w-full items-center justify-evenly md:px-12 md:py-16 md:items-center md:justify-end gap-12">
-                    <p className="text-3xl font-semibold text-gray-900 text-center">
-                        250k+
-                        <span className="block text-xl text-muted-foreground font-normal">
-                            Offers Recieved
-                        </span>
-                    </p>
-                    <p className="text-3xl font-semibold text-gray-900 text-center">
-                        1.2M+
-                        <span className="block text-xl text-muted-foreground font-normal">
-                            Interview Aced
-                        </span>
-                    </p>
-                </div> */}
+    
 
                 <div className="flex flex-col md:flex-row w-full items-center justify-center md:justify-between gap-12 px-6 py-12 md:px-16 md:py-20 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg">
                     <div className="text-center md:text-left max-w-md">
@@ -97,49 +83,24 @@ const HomePage = () => {
                     </div>
                 </div>
 
-
-                {/* image section */}
-                <div className="w-full mt-4 rounded-xl bg-gray-100 h-[420px] drop-shadow-md overflow-hidden relative">
-                    <img
-                        src="/assets/img/homeimg.png"
-                        alt=""
-                        className="w-full h-full object-cover"
-                    />
-
-                    <div className="absolute top-4 left-4 px-4 py-2 rounded-md bg-white/40 backdrop-blur-md">
-                        Inteviews Copilot&copy;
-                    </div>
-
-                    <div className="hidden md:block absolute w-80 bottom-4 right-4 px-4 py-2 rounded-md bg-white/60 backdrop-blur-md">
-                        <h2 className="text-neutral-800 font-semibold">Developer</h2>
-                        <p className="text-sm text-neutral-500">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                            distinctio natus, quos voluptatibus magni sapiente.
-                        </p>
-
-                        <Button className="mt-3">
-                        Generate <Sparkles />
-                        </Button>
-                    </div>
-                </div>
+                
             </Container> 
 
             {/* marquee section */}
             <div className=" w-full my-12">
                 <Marquee pauseOnHover>
                     <MarqueImg img="/assets/img/logo/firebase.png" />
-                    <MarqueImg img="/assets/img/logo/meet.png" />
-                    <MarqueImg img="/assets/img/logo/zoom.png" />
-                    <MarqueImg img="/assets/img/logo/firebase.png" />
-                    <MarqueImg img="/assets/img/logo/microsoft.png" />
-                    <MarqueImg img="/assets/img/logo/meet.png" />
+                    <MarqueImg img="/assets/img/logo/canvas.png" />
                     <MarqueImg img="/assets/img/logo/tailwindcss.png" />
-                    <MarqueImg img="/assets/img/logo/microsoft.png" />
+                    <MarqueImg img="/assets/img/logo/ReactLogo.png" />
+                    <MarqueImg img="/assets/img/logo/Gemini.png" />
+                    <MarqueImg img="/assets/img/logo/clerk.png" />
+                    <MarqueImg img="/assets/img/logo/firebase.png" />
                 </Marquee>
             </div>
 
 
-            <Container className="py-8 space-y-8">
+            {/* <Container className="py-8 space-y-8">
                 <h2 className="tracking-wide text-xl text-gray-800 font-semibold">
                     Unleash your potential with personalized AI insights and targeted
                     interview practice.
@@ -168,6 +129,31 @@ const HomePage = () => {
                         </Link>
                     </div>
                 </div>
+            </Container> */}
+
+
+            <Container className="py-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    {/* Image with Overlay */}
+                    <div className="relative w-full h-96 rounded-xl overflow-hidden">
+                        <img src="/assets/img/off.jpeg" alt="" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <h2 className="text-white text-2xl font-semibold text-center px-4">
+                                Unlock Your Potential with AI-Powered Coaching
+                            </h2>
+                        </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="flex flex-col space-y-4 text-center md:text-left">
+                        <p className="text-gray-700 text-lg">
+                            Transform your preparation, gain confidence, and maximize your chances of success.
+                        </p>
+                        <Link to="/generate" className="w-full flex justify-center md:justify-start">
+                            <Button className="w-40">Generate <Sparkles className="ml-2" /></Button>
+                        </Link>
+                    </div>
+                </div>
             </Container>
         </div>
     )
@@ -179,27 +165,4 @@ export default HomePage
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-{/* 
 
-    Home page top matter to display
-
-<div className="my-8">
-    <h2 className="text-3xl text-center md:text-left md:text-6xl">
-        <span className=" text-outline font-extrabold md:text-8xl">
-            AI Superpower
-        </span>
-        <span className="text-gray-500 font-extrabold">
-            - A better way to
-        </span>
-        <br />
-        improve your interview chances and skills
-    </h2>
-
-    <p className="mt-4 text-muted-foreground text-sm">
-        Boost your interview skills and increase your success rate with
-        AI-driven insights. Discover a smarter way to prepare, practice, and
-        stand out.
-    </p>
-</div> 
-
-*/}
