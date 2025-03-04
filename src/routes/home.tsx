@@ -10,7 +10,10 @@ const HomePage = () => {
             {/* Background Image with Low Opacity */}
             <div 
                 className="absolute inset-0 bg-cover bg-center opacity-20"
-                style={{ backgroundImage: "url('/assets/img/backg.jpg')" }}
+                style={{ 
+                    backgroundImage: "url('/assets/img/backg.jpg')",
+                    backgroundAttachment: "fixed"
+                }}
             />
             <div className="relative z-10">
                 <Container>
@@ -95,9 +98,9 @@ const HomePage = () => {
                         <MarqueImg img="/assets/img/logo/canvas.png" />
                         <MarqueImg img="/assets/img/logo/tailwindcss.png" />
                         <MarqueImg img="/assets/img/logo/ReactLogo.png" />
+                        <MarqueImg img="/assets/img/logo/firebase.png" />
                         <MarqueImg img="/assets/img/logo/Gemini.png" />
                         <MarqueImg img="/assets/img/logo/clerk.png" />
-                        <MarqueImg img="/assets/img/logo/firebase.png" />
                     </Marquee>
                 </div>
 
