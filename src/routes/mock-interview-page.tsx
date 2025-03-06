@@ -1,4 +1,4 @@
- /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Interview } from "@/types";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,17 +6,15 @@ import LoaderPage from "./loader-page";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase.config";
 import { CustomBreadCrumb } from "@/components/custom-bread-crumb";
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Lightbulb } from "lucide-react";
 import { QuestionSection } from "@/components/question-section";
+import * as faceapi from "face-api.js";
 
 export const MockInterviewPage = () => {
   const { interviewId } = useParams<{ interviewId: string }>();
   const [interview, setInterview] = useState<Interview | null>(null);
-
   const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,15 +40,50 @@ export const MockInterviewPage = () => {
     fetchInterview();
   }, [interviewId, navigate]);
 
+  useEffect(() => {
+    // Load face-api.js models for face detection
+    const loadModels = async () => {
+      await faceapi.nets.tinyFaceDetector.loadFromUri("/models");
+      await faceapi.nets.faceLandmark68Net.loadFromUri("/models");
+      await faceapi.nets.faceRecognitionNet.loadFromUri("/models");
+    };
+
+    loadModels();
+  }, []);
+
+  useEffect(() => {
+    // Detect tab switching
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        alert("Tab switching detected! Please stay on this page.");
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Detect fullscreen exit
+    const checkFullscreen = () => {
+      if (!document.fullscreenElement) {
+        alert("You exited fullscreen! Please remain in fullscreen mode.");
+      }
+    };
+
+    document.addEventListener("fullscreenchange", checkFullscreen);
+    return () => {
+      document.removeEventListener("fullscreenchange", checkFullscreen);
+    };
+  }, []);
+
   if (isLoading) {
     return <LoaderPage className="w-full h-[70vh]" />;
   }
 
-  if (!interviewId) {
-    navigate("/generate", { replace: true });
-  }
-
-  if (!interview) {
+  if (!interviewId || !interview) {
     navigate("/generate", { replace: true });
   }
 

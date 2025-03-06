@@ -17,7 +17,6 @@ export const MockLoadPage = () => {
   const [interview, setInterview] = useState<Interview | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isWebCamEnabled, setIsWebCamEnabled] = useState(false);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,6 +41,34 @@ export const MockLoadPage = () => {
 
     fetchInterview();
   }, [interviewId, navigate]);
+
+  useEffect(() => {
+    // Detect tab switching
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        alert("Tab switching detected! Please stay on this page.");
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Detect fullscreen exit
+    const checkFullscreen = () => {
+      if (!document.fullscreenElement) {
+        alert("You exited fullscreen! Please remain in fullscreen mode.");
+      }
+    };
+
+    document.addEventListener("fullscreenchange", checkFullscreen);
+    return () => {
+      document.removeEventListener("fullscreenchange", checkFullscreen);
+    };
+  }, []);
 
   if (isLoading) {
     return <LoaderPage className="w-full h-[70vh]" />;

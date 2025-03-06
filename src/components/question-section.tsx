@@ -11,14 +11,11 @@ interface QuestionSectionProps {
 
 export const QuestionSection = ({ questions }: QuestionSectionProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isWebCam, setIsWebCam] = useState(false);
-
-  const [currentSpeech, setCurrentSpeech] =
-    useState<SpeechSynthesisUtterance | null>(null);
+  const [currentSpeech, setCurrentSpeech] = useState<SpeechSynthesisUtterance | null>(null);
+  const [isWebCam, setIsWebCam] = useState(true); // ✅ Added state for webcam
 
   const handlePlayQuestion = (qst: string) => {
     if (isPlaying && currentSpeech) {
-      // stop the speech if already playing
       window.speechSynthesis.cancel();
       setIsPlaying(false);
       setCurrentSpeech(null);
@@ -28,8 +25,6 @@ export const QuestionSection = ({ questions }: QuestionSectionProps) => {
         window.speechSynthesis.speak(speech);
         setIsPlaying(true);
         setCurrentSpeech(speech);
-
-        // handle the speech end
         speech.onend = () => {
           setIsPlaying(false);
           setCurrentSpeech(null);
@@ -40,17 +35,11 @@ export const QuestionSection = ({ questions }: QuestionSectionProps) => {
 
   return (
     <div className="w-full min-h-96 border rounded-md p-4">
-      <Tabs
-        defaultValue={questions[0]?.question}
-        className="w-full space-y-12"
-        orientation="vertical"
-      >
+      <Tabs defaultValue={questions[0]?.question} className="w-full space-y-12" orientation="vertical">
         <TabsList className="bg-transparent w-full flex flex-wrap items-center justify-start gap-4">
           {questions?.map((tab, i) => (
             <TabsTrigger
-              className={cn(
-                "data-[state=active]:bg-emerald-200 data-[state=active]:shadow-md text-xs px-2"
-              )}
+              className={cn("data-[state=active]:bg-emerald-200 data-[state=active]:shadow-md text-xs px-2")}
               key={tab.question}
               value={tab.question}
             >
@@ -79,11 +68,8 @@ export const QuestionSection = ({ questions }: QuestionSectionProps) => {
               />
             </div>
 
-            <RecordAnswer
-              question={tab}
-              isWebCam={isWebCam}
-              setIsWebCam={setIsWebCam}
-            />
+            {/* ✅ Pass webcam state to RecordAnswer */}
+            <RecordAnswer question={tab} isWebCam={isWebCam} setIsWebCam={setIsWebCam} />
           </TabsContent>
         ))}
       </Tabs>
